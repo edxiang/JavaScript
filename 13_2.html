@@ -1,21 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
 	</head>
-	<script>
-		// run every 1 second;
-		function displayTime(){
-			var elt = document.getElementById("clock");
-			var now = new Date();
-			elt.innerHTML = now.toLocaleTimeString();
-			setTimeout(displayTime, 1000);
-		}
-		window.onload = displayTime();		
-	</script>
 	<style>
-		#clock{
+		#clock {
 			font: bold 24pt sans;
 			background: #ddf;
 			padding: 10px;
@@ -23,8 +14,27 @@
 			border-radius: 10px;
 		}
 	</style>
+
 	<body>
-		<h1>Digital Clock</h1>
+		
+		<h1 data-abc="this is the clock's title" name="this is name" nameWhat="this is name what?" id="clock1">Digital Clock</h1>
 		<span id="clock"></span>
+		
+		
+		<script type="text/javascript" src="js/jquery-3.2.1/jquery-3.2.1.min.js" ></script>
+		<script>
+			// run every 1 second;
+			function displayTime() {
+				var elt = document.getElementById("clock");
+				var now = new Date();
+				elt.innerHTML = now.toLocaleTimeString();
+				setTimeout(displayTime, 1000);
+				
+				console.log($("#clock1").attr("nameWhat"));
+			}
+			// if add parentheses to the "displayTime", the function of displayTime won't work!
+			window.onload = displayTime;
+		</script>
 	</body>
+
 </html>
